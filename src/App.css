@@ -1,0 +1,761 @@
+/* * {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-page: #161616;
+    --card-bg: #232323;
+    --pill-bg: #2c2c2c;
+    --text-main: #ffffff;
+    --text-muted: #9a9a9a;
+    --text-faint: #6e6e6e;
+    --divider: #3a3a3a;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    overflow: hidden;
+}
+
+#root {
+    height: 100vh;
+    background-color: var(--bg-page);
+}
+
+.container-fluid {
+    height: 100vh;
+    padding: 14px;
+    overflow: hidden;
+} */
+
+
+
+
+
+html, body {
+    margin: 0;
+    background-color: #161616;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+}
+
+#root {
+    min-height: 100vh;
+    background-color: #161616;
+}
+
+.home-page {
+    --bg-page: #161616;
+    --card-bg: #232323;
+    --pill-bg: #2c2c2c;
+    --text-main: #ffffff;
+    --text-muted: #9a9a9a;
+    --text-faint: #6e6e6e;
+    --divider: #3a3a3a;
+
+    height: 100vh;
+    
+    /* overflow: hidden; */
+    color: #ffffff;
+    padding: 14px ;
+.left{
+    margin-left: 120px;
+}
+
+
+.row.g-3.align-items-stretch {
+    height: 100%;
+}
+
+.weather-card {
+    background-color: var(--card-bg);
+    border-radius: 24px;
+    padding: 16px;
+    color: white;
+    height:100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+}
+
+.weather-card::-webkit-scrollbar {
+    display: none;
+}
+/* Search bar */
+.search-pill {
+    background-color: var(--text-main);
+    border: none;
+    border-radius: 50px;
+    padding: 8px 18px;
+     color: #000000;
+    font-size: 0.85rem;
+}
+
+.search-pill::placeholder {
+    color: var(--text-faint);
+}
+
+.search-pill:focus {
+    background-color: var(--text-main);
+    color: #000000;
+
+    box-shadow: none;
+}
+
+.search-wrap i {
+    position: absolute;
+    left: 16px;
+    top: 60%;
+    transform: translateY(-50%);
+    color: var(--text-faint);
+}
+
+.search-wrap input {
+    padding-left: 40px;
+}
+
+/* Weather icon (image) */
+.weather-icon {
+    text-align: center;
+    margin: 12px 0 8px;
+    font-size: 100px;
+
+}
+
+.img1 {
+    width:160px;
+    height:160px;
+    object-fit: contain;
+    
+    
+}
+
+/* Temperature */
+.temp-display {
+    font-size: 2.9rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom:7px;
+}
+
+/* Location row */
+.location-row {
+    text-align: center;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--divider);
+}
+
+.location-row .day {
+    color: var(--text-muted);
+}
+
+/* Condition list */
+.condition-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 14px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.condition-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.condition-list i {
+    color: var(--text-faint);
+    width: 18px;
+}
+
+/* Bottom stats */
+.stat-box {
+    background-color: var(--pill-bg);
+    border-radius: 14px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 100%;
+}
+
+.stat-box i {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+.stat-box .stat-value {
+    font-weight: 600;
+    font-size: 0.88rem;
+}
+
+.stat-box .stat-label {
+    font-size: 0.66rem;
+    color: var(--text-faint);
+}
+
+/* ============ MIDDLE COLUMN ============ */
+
+/* Tabs */
+.nav-tabs-custom {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 10px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    padding: 0 0 8px;
+    position: relative;
+    cursor: pointer;
+}
+
+.tab-btn.active {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.tab-btn.active::after {
+    content: "";
+    position: absolute;
+    bottom: -11px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--text-main);
+    border-radius: 2px;
+}
+
+/* Week forecast cards */
+.week-forecast {
+    margin-bottom: 18px !important;
+}
+
+.day-card {
+    background-color: var(--pill-bg);
+    border-radius: 16px;
+    padding: 12px 6px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+
+.day-name {
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.day-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.day-temp {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Section title */
+.section-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0 0 12px !important;
+}
+
+/* Metric cards */
+.metric-card {
+    background-color: var(--pill-bg);
+    border-radius: 16px;
+    padding: 14px;
+    position: relative;
+    min-height: 105px;
+    height: 100%;
+}
+
+.metric-label {
+    font-size: 0.7rem;
+    color: var(--text-faint);
+    display: block;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 6px 0;
+    line-height: 1;
+}
+
+.metric-status {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.metric-status.good {
+    color: #4ade80;
+}
+
+.metric-status.moderate {
+    color: #facc15;
+}
+
+.metric-status-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+}
+
+.metric-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* Chart card */
+.chart-card {
+    min-height: 120px;
+}
+
+.chart-area {
+    margin-top: 8px;
+}
+
+.precip-chart {
+    width: 100%;
+    height: 60px;
+    display: block;
+}
+
+.chart-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.64rem;
+    color: var(--text-faint);
+    margin-top: 6px;
+}
+
+/* Sunrise / Sunset */
+.sun-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.sun-item i {
+    font-size: 1.15rem;
+}
+
+.sun-label {
+    font-size: 0.7rem;
+    color: var(--text-faint);
+}
+
+.sun-time {
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+/* ============ RIGHT COLUMN ============ */
+
+/* .icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.icon-item img.icon-preview {
+    width: 38px !important;
+    height: 38px !important;
+    object-fit: contain;
+}
+
+.icon-label {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    line-height: 1.15;
+}
+
+.row.g-3 {
+    --bs-gutter-y: 0.4rem;
+}
+
+.source-text {
+    font-size: 0.64rem;
+    color: var(--text-faint);
+    border-top: 1px solid var(--divider);
+    padding-top: 12px;
+    margin-top: 10px !important;
+}
+
+.source-text div {
+    margin-bottom: 3px;
+}
+
+.font-preview {
+    border-top: 1px solid var(--divider);
+    padding-top: 12px;
+    margin-top: 10px !important;
+}
+
+.font-header-sample {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 5px;
+}
+
+.font-body-sample {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+} */
+
+/* Mobile */
+@media (max-width: 576px) {
+    html, body {
+        overflow-y: auto;
+    }
+
+    .container-fluid {
+        height: auto;
+        overflow: visible;
+    }
+
+    .weather-card {
+        height: auto;
+        overflow: visible;
+    }
+
+    .week-forecast {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+
+    .week-forecast .col {
+        min-width: 70px;
+    }
+
+    .metric-value {
+        font-size: 1.3rem;
+    }
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== Horizontal scroll fix (mobile/tablet) ===== */
+@media (max-width: 991.98px) {
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .home-page {
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Bootstrap row ka negative margin hatao */
+    .home-page > .row {
+        margin-left: 0;
+        margin-right: 0;
+        --bs-gutter-x: 0.75rem;
+    }
+
+    /* Columns ko width se bahar jane se roko */
+    .home-page > .row > [class*="col-"] {
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .weather-card {
+        min-width: 0;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Sirf forecast apne andar scroll kare, page nahi */
+    .week-forecast {
+        margin-left: 0;
+        margin-right: 0;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+}
+
+/* Dono cards ko barabar karna */
+.home-page > .row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.home-page > .row > [class*="col-"] {
+    min-width: 0;
+}
+
+.weather-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.left {
+    margin-left: 0 !important;
+}
+
+
+.dashboard-wrap {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Laptop: dono cards ko beech mein karna */
+@media (min-width: 992px) {
+    .home-page > .row {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+/* ===== Laptop: ek hi page mein, scroll nahi ===== */
+@media (min-width: 992px) {
+    html, body {
+        overflow: hidden;
+    }
+
+    .home-page {
+        height: 100vh;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+    }
+
+    .home-page > .row {
+        width: 100%;
+        height: auto;
+        max-height: calc(100vh - 24px);
+        justify-content: center;
+        --bs-gutter-x: 0.75rem;
+        --bs-gutter-y: 0;
+    }
+
+    .weather-card {
+        height: auto;
+        max-height: calc(100vh - 24px);
+        padding: 12px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    /* Left card chhota */
+    .img1 { width: 100px; height: 100px; }
+    .weather-icon { margin: 4px 0; }
+    .temp-display { font-size: 2.1rem; margin-bottom: 2px; }
+    .location-row { padding-bottom: 8px; margin-bottom: 8px; }
+    .condition-list { margin-bottom: 8px; }
+    .condition-list li { margin-bottom: 6px; }
+    .stat-box { padding: 8px 10px; }
+
+    /* Middle card chhota */
+    .nav-tabs-custom { margin-bottom: 10px !important; padding-bottom: 6px; }
+    .week-forecast { margin-bottom: 10px !important; }
+    .day-card { padding: 8px 4px; gap: 4px; }
+    .day-icon { width: 26px; height: 26px; }
+    .section-title { margin-bottom: 8px !important; }
+    .metric-card { min-height: 80px; padding: 10px; }
+    .metric-value { font-size: 1.4rem; margin: 4px 0; }
+    .chart-card { min-height: 90px; }
+    .precip-chart { height: 45px; }
+}
+
+
+
+
+
+
+
+/* ===== Laptop: ek screen mein fit, scroll nahi ===== */
+@media (min-width: 992px) {
+    html, body {
+        overflow: hidden;
+    }
+
+    .home-page {
+        height: 100vh;
+        padding: 2vh 14px;
+        display: flex;
+        align-items: center;
+    }
+
+    .home-page > .row {
+        width: 100%;
+        height: 96vh;
+        justify-content: center;
+        --bs-gutter-y: 0;
+    }
+
+    .home-page > .row > div {
+        height: 100%;
+    }
+
+    .weather-card {
+        height: 100% !important;
+        padding: 1.8vh 14px;
+        overflow: hidden !important;
+        justify-content: space-between;
+    }
+
+    /* ---- LEFT CARD (pehla column) ---- */
+    .home-page > .row > div:first-child .search-wrap { margin-bottom: 0 !important; }
+    .home-page > .row > div:first-child .weather-icon { margin: 0 !important; }
+    .home-page > .row > div:first-child .img1 {
+        width: 14vh;
+        height: 14vh;
+    }
+    .home-page > .row > div:first-child .temp-display {
+        font-size: clamp(1.6rem, 5.5vh, 2.6rem);
+        margin: 0 !important;
+    }
+    .home-page > .row > div:first-child .location-row {
+        margin: 0 0 1vh !important;
+        padding-bottom: 1vh;
+    }
+    .home-page > .row > div:first-child .condition-list {
+        margin: 0 0 1vh !important;
+    }
+    .home-page > .row > div:first-child .condition-list li {
+        margin-bottom: 0.8vh;
+    }
+    .home-page > .row > div:first-child .stat-box {
+        padding: 1vh 10px;
+    }
+
+    /* ---- MIDDLE CARD (doosra column) ---- */
+    .nav-tabs-custom { margin-bottom: 1.5vh !important; padding-bottom: 0.8vh; }
+    .week-forecast { margin-bottom: 1.5vh !important; }
+    .day-card { padding: 1.2vh 4px; gap: 0.6vh; }
+    .day-icon { width: 3.4vh; height: 3.4vh; }
+    .section-title { margin: 0 0 1vh !important; }
+    .metric-card { min-height: 0; padding: 1.4vh 12px; }
+    .metric-value { font-size: clamp(1.2rem, 3.5vh, 1.7rem); margin: 0.6vh 0; }
+    .chart-card { min-height: 0; }
+    .precip-chart { height: 6vh; }
+}
+
+/* ===== Left card: dost wali picture jaisa balance (laptop) ===== */
+@media (min-width: 992px) {
+    .home-page > .row > div:first-child .weather-card {
+        justify-content: space-between;
+        padding: 2.5vh 16px;
+    }
+
+    .home-page > .row > div:first-child .search-pill {
+        padding: 1.4vh 18px 1.4vh 40px;
+        font-size: 0.9rem;
+    }
+
+    .home-page > .row > div:first-child .img1 {
+        width: 22vh;
+        height: 22vh;
+    }
+
+    .home-page > .row > div:first-child .temp-display {
+        font-size: clamp(2rem, 7vh, 3.2rem);
+    }
+
+    .home-page > .row > div:first-child .location-row {
+        font-size: 1.05rem;
+        margin: 0 !important;
+        padding-bottom: 1.4vh;
+    }
+
+    .home-page > .row > div:first-child .condition-list {
+        font-size: 0.92rem;
+        margin: 0 !important;
+    }
+
+    .home-page > .row > div:first-child .condition-list li {
+        margin-bottom: 1.4vh;
+    }
+
+    .home-page > .row > div:first-child .stat-box {
+        padding: 1.6vh 12px;
+    }
+}
+
+
+/* Condition list ko thora sa neeche karna (laptop) */
+@media (min-width: 992px) {
+    .home-page > .row > div:first-child .condition-list {
+        margin-top: 4vh !important;
+        margin-bottom: auto !important;
+        position: relative;
+        top: 3.5vh;
+    }
+}
